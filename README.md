@@ -35,8 +35,10 @@ sudo install /tmp/docker-machine /usr/local/bin/docker-machine</strong></li>
 <li>Command to check docker-machine version</li>
 <strong>$docker-machine version</strong></br>
 <strong>$docker-machine -v</strong></br>
-</ol>
+</ol>  
+
 ------------------------------------------------------------------------------
+
 <li>Step 1 : create docker machine to act as node for docker swaarm)</li>
 Create one machine as manager and other as workers.</br>
 <ol>
@@ -60,8 +62,10 @@ docker-machine:Error with pre-create check: “exit status 126”</br>
 <li>To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run:</li>
 <strong>$ docker-machine env manager1</strong></br>
 5
-</ol>
-------------------------------------------------------------------------------</br>
+</ol>  
+
+------------------------------------------------------------------------------
+
 <li>Step 2: Check machine created successfully</li>
 <ol>
 <li>docker-machine ls to list out the machines that we have</li>
@@ -78,8 +82,10 @@ docker-machine:Error with pre-create check: “exit status 126”</br>
  <strong>$ docker-machine create --driver virtualbox worker1.2</strong></br>
 In short we have 3 nodes out of which one will be manager 2 will be workers.</br>
 7
-</ol>
-----------------------------------------------------------------------------------</br>
+</ol>  
+
+----------------------------------------------------------------------------------
+
 <li>Step 3: <strong>SSH</strong>(connect) to docker machine.</li>
 <ol>
 Open new terminal (ctrl+shift+t)</br>
@@ -95,8 +101,10 @@ We will look how to do ssh into a docker machine directly and to use it as a <st
 <strong>SSH key</strong>
 You can link your Cloud and Service providers so that Docker Cloud can provision and manage swarms on your behalf. For this, you need an SSH key to authenticate Docker to your provider.</br>
 SSH is a secure protocol for accessing remote machines and applications. It provides authentication and encrypts data communication over insecure networks.</br>
-</ol>
----------------------------------------------------------------------------</br>
+</ol>  
+
+---------------------------------------------------------------------------
+
 <li>Step 4: Initialize Docker Swarm.</li>
 <ol>
 <li>Check node_id</li>
@@ -111,8 +119,10 @@ We can add more manager with same command.</br>
 This command is run in only manager terminal(this command will work only in swarm manager and not in worker).</br>
 <strong>$ docker node ls</strong></br>
 11
-</ol>
--------------------------------------------------------------------------------</br>
+</ol>  
+
+-------------------------------------------------------------------------------
+
 <li>Step 5: Join workers in the swarm.</li>
 <ol>
 <li>Command for joining as worker.</li>
@@ -137,8 +147,10 @@ This will give command to join swarm as manager.</br>
 SSH into worker node(machine) and run command to join swarm as worker.</br>
 In Manager Run command - docker node ls to verify worker is registered and is ready.</br>
 Do this for all worker machines.</br>
-</ol>
------------------------------------------------------------------------------------</br>
+</ol>  
+
+-----------------------------------------------------------------------------------
+
 <li>Step 6: On manager run standard docker commands.</li>
 <ol>
 <li>Check swarm section in which all details about swarm no of manager, nodes(manager is also node) etc.</li>
@@ -148,8 +160,10 @@ Do this for all worker machines.</br>
 <li>Now check docker swarm command options.</li> 
 <strong>$ docker swarm </strong>
 17
-</ol>
-----------------------------------------------------------------------------------</br>
+</ol>   
+
+----------------------------------------------------------------------------------
+
 <li>Step 7: Run containers on Docker Swarm.</li>
 <ol>
 <li>Now we will create a services, and run these services to create replicas with count(number) of replica.</li> 
@@ -171,8 +185,10 @@ services running on all nodes</br>
 <li>Check on the browser by giving ip for all nodes</li>
 Take the url port and run on browser.</br> 
 21
-</ol>
----------------------------------------------------------------------------------</br>
+</ol>  
+
+---------------------------------------------------------------------------------
+
 <li>Step 8: Scale service up and down.</li>
 <ol>
 <li>We can increase or decrease the countS for example web1=6, till now it running in 3 nodes </li> 
@@ -203,17 +219,20 @@ Inspecting Nodes (this command can run only on manager node)</br>
 
 <li>inspect in running terminal </li>
 <strong>$ docker node inspect self</strong></br>
-</ol>
----------------------------------------------------------------------------------------</br>
+</ol>  
+
+---------------------------------------------------------------------------------------
+
 <li>Step 9: Update service.</li>
 <ol>
 <li>When your service is running on multiple machines and you have to make some updates.</li>
 docker service update --image imagename:version web1</br>
 <strong>$ docker service update --image nginx:1.14.0 serviceName</strong></br>
 27
-</ol>
+</ol>  
 
----------------------------------------------------------------------------------------</br>
+---------------------------------------------------------------------------------------
+
 <li>Step 10: Shutdown node</li>
 <ol>
 <li>Command to shutdown the node.</li>
@@ -221,8 +240,10 @@ docker service update --image imagename:version web1</br>
 <li>Check the AVAILABILITY of the worker1.2</li>
 <strong>$ docker node ls</strong></br>
 28
-</ol>
------------------------------------------------------------------------------------------</br>
+</ol>  
+
+-----------------------------------------------------------------------------------------
+
 <li>Step 11: Remove service</li>
 <ol>
 <li>docker service rm serviceName it will remove the node from all the machine.</li>
