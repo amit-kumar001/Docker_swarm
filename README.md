@@ -19,7 +19,7 @@ You need to do </br>
 ----------------------------------------------------------------------------------------
 ## Requirements
 <ol>
-<li>Docker 1.13 or higher</li>  </br>  
+<li>Docker 1.13 or higher</li></br>  
  
 ![1](https://user-images.githubusercontent.com/47202519/56483999-ed6d5100-64ea-11e9-90e8-cd0807a00c9e.png)</br>
 
@@ -34,7 +34,7 @@ Command to install docker-machine in ubuntu</br>
 <ol>
 <li><strong>base=https://github.com/docker/machine/releases/download/v0.16.0 &&</br>
 curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&</br>
-sudo install /tmp/docker-machine /usr/local/bin/docker-machine</strong></li>  </br>
+sudo install /tmp/docker-machine /usr/local/bin/docker-machine</strong></li></br>
 
 ![2](https://user-images.githubusercontent.com/47202519/56484002-f100d800-64ea-11e9-92c4-de32558f5761.png)</br>
 
@@ -58,17 +58,17 @@ docker-machine:Error with pre-create check: “exit status 126”</br>
 
 
 <li>Need driver to create machine: we going to use virtualbox</li>
-<strong>$ sudo apt-get install virtualbox</strong></br>  
+<strong>$ sudo apt-get install virtualbox</strong></br></br>  
 
 ![3](https://user-images.githubusercontent.com/47202519/56484004-f4945f00-64ea-11e9-9c72-ef19aaab237f.png)</br>
 
 <li>Now create docker machine manager </li>
-<strong>$ docker-machine create --driver virtualbox manager1</strong></br>  
+<strong>$ docker-machine create --driver virtualbox manager1</strong></br> </br>  
 
 ![4](https://user-images.githubusercontent.com/47202519/56484006-f827e600-64ea-11e9-99b2-12c8370507af.png)</br>
 
 <li>To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run:</li>
-<strong>$ docker-machine env manager1</strong></br>  
+<strong>$ docker-machine env manager1</strong></br></br>   
 
 ![5](https://user-images.githubusercontent.com/47202519/56484012-fcec9a00-64ea-11e9-9a24-bb03fbf78868.png)</br>
 
@@ -79,19 +79,19 @@ docker-machine:Error with pre-create check: “exit status 126”</br>
 <li>Step 2: Check machine created successfully</li>
 <ol>
 <li>docker-machine ls to list out the machines that we have</li>
-<strong>$ docker-machine ls</strong></br>  
+<strong>$ docker-machine ls</strong></br></br>   
 
 ![6](https://user-images.githubusercontent.com/47202519/56484045-3de4ae80-64eb-11e9-9f64-14c8f63bd3e2.png)</br>
 
 <li>The machine has been created, it's active the driver is VirtualBox.</li>
 
 <li>IP of this particular machine</li>
-<strong>$ docker-machine ip manager1</strong></br>
+<strong>$ docker-machine ip manager1</strong></br></br> 
 
 <li>Now we need to create more machine with same command but change the name of the machine.</li>
 <strong> $ docker-machine create --driver virtualbox worker1.1</strong></br>
  <strong>$ docker-machine create --driver virtualbox worker1.2</strong></br>
-In short we have 3 nodes out of which one will be manager 2 will be workers.</br>  
+In short we have 3 nodes out of which one will be manager 2 will be workers.</br> </br>  
 
 ![7](https://user-images.githubusercontent.com/47202519/56484047-40df9f00-64eb-11e9-9e27-ef6d474a2baf.png)</br>
 
