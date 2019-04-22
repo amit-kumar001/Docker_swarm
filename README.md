@@ -113,7 +113,7 @@ We will look how to do ssh into a docker machine directly and to use it as a <st
 <strong>$ docker-machine ssh worker1.1</strong></br>
 <strong>$ docker-machine ssh worker1.2</strong></br></br>
 
-<strong>SSH key</strong>
+<strong>SSH key:-</strong></br> 
 You can link your Cloud and Service providers so that Docker Cloud can provision and manage swarms on your behalf. For this, you need an SSH key to authenticate Docker to your provider.</br>
 SSH is a secure protocol for accessing remote machines and applications. It provides authentication and encrypts data communication over insecure networks.</br>
 </ol>  
@@ -127,14 +127,14 @@ SSH is a secure protocol for accessing remote machines and applications. It prov
 
 <li>Now use same terminal in which we add a link between manager1 and ssh key.</li>
 <strong>$ docker swarm init --advertise-addr MANAGER_IP</strong></br>
-<strong>$ docker swarm init --advertise-addr 192.168.99.100</strong></br>  
+<strong>$ docker swarm init --advertise-addr 192.168.99.100</strong></br></br>   
 
 ![10](https://user-images.githubusercontent.com/47202519/56484055-4a690700-64eb-11e9-9b44-ff782649e969.png)</br>
 
 We can add more manager with same command.</br>
 <li>Check the node status</li>
 This command is run in only manager terminal(this command will work only in swarm manager and not in worker).</br>
-<strong>$ docker node ls</strong></br>  
+<strong>$ docker node ls</strong></br> </br>  
 
 ![11](https://user-images.githubusercontent.com/47202519/56484064-4fc65180-64eb-11e9-934a-e653838657cf.png)</br>
 
@@ -147,24 +147,24 @@ This command is run in only manager terminal(this command will work only in swar
 <li>Command for joining as worker.</li>
 Run command in manager1 node(terminal). </br>
 This will give command to join swarm as worker</br>
-<strong>$ docker swarm join-token worker</strong> </br> 
+<strong>$ docker swarm join-token worker</strong> </br> </br> 
 
 ![12](https://user-images.githubusercontent.com/47202519/56484068-53f26f00-64eb-11e9-8c2f-2f789283466e.png) </br> 
 
 <li>Copy the swarn join command and run in worker-machine terminal to add worker for the manager node</li>
-<strong>$ docker swarm join --token SWMTKN-1-1627nzpuotunfseghhlp0l8f5osvikkyi5cqmqezspoq2n1w8b-39fj8930ndg14mq20oy1ey86m 192.168.99.100:2377</strong></br>  
+<strong>$ docker swarm join --token SWMTKN-1-1627nzpuotunfseghhlp0l8f5osvikkyi5cqmqezspoq2n1w8b-39fj8930ndg14mq20oy1ey86m 192.168.99.100:2377</strong></br> </br>  
 
 ![13](https://user-images.githubusercontent.com/47202519/56484069-56ed5f80-64eb-11e9-8930-578cb2f85e5d.png)</br>
 
 <li>Now go back in to manager terminal and check the status of all nodes</li>
-<strong>$ docker node ls</strong></br>  
+<strong>$ docker node ls</strong></br></br>   
 
 ![14](https://user-images.githubusercontent.com/47202519/56484159-c6fbe580-64eb-11e9-8fba-54a79b09ff87.png)</br>
 
 <li>Another way to join manager</li>
 docker swarm join-token manager</br>
 This will give command to join swarm as manager.</br>
-<strong>docker swarm join --token SWMTKN-1-1627nzpuotunfseghhlp0l8f5osvikkyi5cqmqezspoq2n1w8b-1fv7a9blk474i605hbwz7vt6l 192.168.99.100:2377</strong></br>  
+<strong>docker swarm join --token SWMTKN-1-1627nzpuotunfseghhlp0l8f5osvikkyi5cqmqezspoq2n1w8b-1fv7a9blk474i605hbwz7vt6l 192.168.99.100:2377</strong></br>  </br> 
 
 ![15](https://user-images.githubusercontent.com/47202519/56484163-d0854d80-64eb-11e9-9bdb-26b153ca9ff0.png)</br>
 
@@ -178,12 +178,12 @@ Do this for all worker machines.</br>
 <li>Step 6: On manager run standard docker commands.</li>
 <ol>
 <li>Check swarm section in which all details about swarm no of manager, nodes(manager is also node) etc.</li>
-<strong>$ docker info</strong>  </br>
+<strong>$ docker info</strong>  </br></br> 
  
 ![16](https://user-images.githubusercontent.com/47202519/56484165-d418d480-64eb-11e9-8607-ebe8bd13f876.png)</br>
 
 <li>Now check docker swarm command options.</li> 
-<strong>$ docker swarm </strong>  </br>
+<strong>$ docker swarm </strong>  </br></br> 
 
 ![17](https://user-images.githubusercontent.com/47202519/56484170-d713c500-64eb-11e9-8c43-07656e876858.png)</br>
 
@@ -198,24 +198,24 @@ Run this command in manager1 terminal.</br>
 docker service create --replicas 3 -p 80:80 --name service_Name nginx</br>
 replicas=3 means it run in 3 node, manager is also node.</br>
 Use nginx web browser to see rinning container.</br> 
-<strong>$ docker service create --replicas 3 -p 80:80 --name web1 nginx</strong></br>  
+<strong>$ docker service create --replicas 3 -p 80:80 --name web1 nginx</strong></br> </br>  
 
 ![18](https://user-images.githubusercontent.com/47202519/56484174-da0eb580-64eb-11e9-8897-1b4aba070cc2.png)</br>
 
 <li>Check the status:</li>
-<strong>$ docker service ls</strong></br>  
+<strong>$ docker service ls</strong></br>  </br> 
 
 ![19](https://user-images.githubusercontent.com/47202519/56484177-dc710f80-64eb-11e9-854a-eee4d17c0275.png)</br>
 
 <li>Running status:</li>
-<strong>$ docker service ps web1</strong></br>  
+<strong>$ docker service ps web1</strong></br> </br>  
 
 ![20](https://user-images.githubusercontent.com/47202519/56484182-ded36980-64eb-11e9-9a58-c2f6891c558f.png)</br>
 
 services running on all nodes</br>
 
 <li>Check on the browser by giving ip for all nodes</li>
-Take the url port and run on browser.</br>   
+Take the url port and run on browser.</br>   </br> 
 
 ![21](https://user-images.githubusercontent.com/47202519/56484185-e135c380-64eb-11e9-866a-8b0f9b1b3a79.png)</br>
 
@@ -230,13 +230,13 @@ Take the url port and run on browser.</br>
 
 <li>Check the services in manger terminal.</li>
 <strong>$ docker service ls</strong></br>
-<strong>$ docker service ps web</strong></br>  
+<strong>$ docker service ps web</strong></br>  </br> 
 
 ![23](https://user-images.githubusercontent.com/47202519/56484250-3d004c80-64ec-11e9-8281-c9513f4635a9.png)</br>
 
 we can see 3 new services is created in manager1 terminal.</br> 
 
-<li>if we run 'docker ps' command inside the manager1 terminal, we can see service is running on 2 containers on manager1 </li>   </br>
+<li>if we run 'docker ps' command inside the manager1 terminal, we can see service is running on 2 containers on manager1 </li></br>
 
 ![24](https://user-images.githubusercontent.com/47202519/56484258-44275a80-64ec-11e9-82fc-7885d2b505de.png)</br>
 
@@ -244,12 +244,12 @@ now 2 container is running in manager1, other 2 in worker1.1 and rest 2 in worke
 
 <li>check in worker1.1 node</li>
 <strong>$ docker ps</strong></br>
-same for worker1.2 node </br>  
+same for worker1.2 node </br>  </br> 
 
 ![25](https://user-images.githubusercontent.com/47202519/56484261-47bae180-64ec-11e9-805f-2b62f9eea0f1.png)</br>
  
 <li>now decrease the services=2</li>
-now it running in worker1.1, and in worker1.2</br>  
+now it running in worker1.1, and in worker1.2</br> </br>  
 
 ![26](https://user-images.githubusercontent.com/47202519/56484265-4ab5d200-64ec-11e9-845e-0b5b28c302a8.png)</br>
 
@@ -267,7 +267,7 @@ Inspecting Nodes (this command can run only on manager node)</br>
 <ol>
 <li>When your service is running on multiple machines and you have to make some updates.</li>
 docker service update --image imagename:version web1</br>
-<strong>$ docker service update --image nginx:1.14.0 serviceName</strong></br>  
+<strong>$ docker service update --image nginx:1.14.0 serviceName</strong></br></br>   
 
 ![27](https://user-images.githubusercontent.com/47202519/56484268-4db0c280-64ec-11e9-899f-f70f9283117e.png)</br>
 
@@ -280,7 +280,7 @@ docker service update --image imagename:version web1</br>
 <li>Command to shutdown the node.</li>
 <strong>$ docker node update --availability drain worker1.2</strong></br>
 <li>Check the AVAILABILITY of the worker1.2</li>
-<strong>$ docker node ls</strong></br>   
+<strong>$ docker node ls</strong></br>   </br> 
 
 ![28](https://user-images.githubusercontent.com/47202519/56484274-50abb300-64ec-11e9-946c-e8f9d041b42b.png)</br>
 
@@ -291,7 +291,7 @@ docker service update --image imagename:version web1</br>
 <li>Step 11: Remove service</li>
 <ol>
 <li>docker service rm serviceName it will remove the node from all the machine.</li>
-<strong>$ docker service rm web1</strong></br>  
+<strong>$ docker service rm web1</strong></br></br>   
 
 ![29](https://user-images.githubusercontent.com/47202519/56484276-530e0d00-64ec-11e9-830b-5c66f2fa091f.png)</br>
 
@@ -300,14 +300,14 @@ docker service update --image imagename:version web1</br>
 Stop workers nodes from main terminal and then check the status of nodes in manager1 terminal.</br>
 docker-machine stop machineName : to stop the machine</br>
 <strong>$ docker-machine stop worker1.1</strong></br>
-<strong>$ docker-machine stop worker1.2</strong></br>  
+<strong>$ docker-machine stop worker1.2</strong></br>  </br> 
 
 ![30](https://user-images.githubusercontent.com/47202519/56484279-56a19400-64ec-11e9-8142-e86079cec0af.png)</br>
 
 Now check in manager1 terminal</br>
 
 You can see the status of workers is down.</br>
-<strong>$ docker node ls</strong></br>  
+<strong>$ docker node ls</strong></br>  </br> 
 
 ![31](https://user-images.githubusercontent.com/47202519/56484295-5f926580-64ec-11e9-87bf-882189e35ea8.png)</br>
 
@@ -315,7 +315,7 @@ You can see the status of workers is down.</br>
 
 <li>docker-machine rm machineName : to remove the machine. Run command in main terminal.<li>
 <strong>$ docker-machine rm worker1.1</strong></br>
-<strong>$ docker-machine rm worker1.1</strong></br>  
+<strong>$ docker-machine rm worker1.1</strong></br> </br>  
 
 ![32](https://user-images.githubusercontent.com/47202519/56484299-628d5600-64ec-11e9-8cea-567b6c6ee101.png)</br>
 
