@@ -12,7 +12,7 @@ You need to do </br>
 - Scaling the containers up or down depending on the load</br>
 - Adding updates/changes to all the containers</br></br>
 
-<strong>Orchestration</strong> - managing and controlling multiple docker containers as a single service
+<strong>Orchestration</strong> - managing and controlling multiple docker containers as a single service.
 
 ----------------------------------------------------------------------------------------
 ## Requirements
@@ -20,8 +20,10 @@ You need to do </br>
 <li>Docker 1.13 or higher</li>
  1
 <li>Docker Machine (pre installed for Docker for Windows and Docker for Mac)</li>
-</ol>
+</ol>  
+
 ----------------------------------------------------------------------------------------
+
 On <strong>mac OS</strong> and <strong>Windows</strong>, Machine is installed along with other Docker products when you install the Docker for Mac, Docker for Windows, or Docker Toolbox.</br>
 But in ubuntu you need to install the machine</br>
 Command to install docker-machine in ubuntu</br>
