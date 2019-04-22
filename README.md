@@ -35,14 +35,14 @@ sudo install /tmp/docker-machine /usr/local/bin/docker-machine</strong></li></br
 
 ![2](https://user-images.githubusercontent.com/47202519/56484002-f100d800-64ea-11e9-92c4-de32558f5761.png)</br>
 
-<li>Command to check docker-machine version:-</li>
+<li>Command to check the docker-machine version:-</li>
 <strong>$docker-machine version</strong></br>
 <strong>$docker-machine -v</strong></br>
 </ol>  
 
 ------------------------------------------------------------------------------
 ## Working with swarm.
-<li><strong>Step1:</strong> Create docker machine(to act as node for docker swarm)</li>
+<li><strong>Step1: Create docker machine(to act as node for docker swarm)</strong></li>
 We will create one machine as manager and other two as workers.</br>
 <ol>
 <li>To check all docker-machine commands.</li>
@@ -73,7 +73,7 @@ docker-machine:Error with pre-create check: “exit status 126”</br>
 
 ------------------------------------------------------------------------------
 
-<li><strong>Step2:</strong> Check machine created successfully.</li>
+<li><strong>Step2: Check machine created successfully.</strong></li>
 <ol>
 <li>'docker-machine ls' to list out the machines that we have.</li>
 <strong>$ docker-machine ls</strong></br></br>   
@@ -96,7 +96,7 @@ In short we have 3 nodes out of which one will be manager 2 will be workers.</br
 
 ----------------------------------------------------------------------------------
 
-<li><strong>Step3:</strong> <strong>SSH</strong>(connect) to docker machine.</li>
+<li><strong>Step3: SSH(connect) to docker machine.</strong></li>
 <ol>
 Open new terminal (ctrl+shift+t)</br>
 <li>Log into or run a command on a machine using SSH.</li>
@@ -117,7 +117,7 @@ SSH is a secure protocol for accessing remote machines and applications. It prov
 
 ---------------------------------------------------------------------------
 
-<li><strong>Step4:</strong> Initialize Docker Swarm.</li>
+<li><strong>Step4: Initialize Docker Swarm.</strong></li>
 <ol>
 <li>Check node_id</li>
 <strong>$ docker-machine ip manager1</strong></br>
@@ -139,7 +139,7 @@ This command is run in only manager terminal(this command will work only in swar
 
 -------------------------------------------------------------------------------
 
-<li><strong>Step5:</strong> Join workers in the swarm.</li>
+<li><strong>Step5: Join workers in the swarm.</strong></li>
 <ol>
 <li>Command for joining as worker.</li>
 Run command in manager1 node(terminal). </br>
@@ -172,7 +172,7 @@ Do this for all worker machines.</br>
 
 -----------------------------------------------------------------------------------
 
-<li><strong>Step6:</strong> On manager run standard docker commands.</li>
+<li><strong>Step6: On manager run standard docker commands.</strong></li>
 <ol>
 <li>Check swarm section in which all details about swarm no of manager, nodes(manager is also node) etc.</li>
 <strong>$ docker info</strong>  </br></br> 
@@ -188,7 +188,7 @@ Do this for all worker machines.</br>
 
 ----------------------------------------------------------------------------------
 
-<li><strong>Step7:</strong> Run containers on Docker Swarm.</li>
+<li><strong>Step7: Run containers on Docker Swarm.</strong></li>
 <ol>
 <li>Now we will create a services, and run these services to create replicas with count(number) of replica.</li> 
 Run this command in manager1 terminal.</br>
@@ -220,7 +220,7 @@ Take the url port and run on browser.</br>   </br>
 
 ---------------------------------------------------------------------------------
 
-<li><strong>Step8:</strong> Scale service up and down.</li>
+<li><strong>Step8: Scale service up and down.</strong></li>
 <ol>
 <li>We can increase or decrease the counts for example web1=6, till now it running in 3 nodes </li> 
 <strong>$ docker service scale web1=6</strong></br>
@@ -260,7 +260,7 @@ Inspecting Nodes (this command can run only on manager node)</br>
 
 ---------------------------------------------------------------------------------------
 
-<li><strong>Step9:</strong> Update service.</li>
+<li><strong>Step9: Update service.</strong></li>
 <ol>
 <li>When your service is running on multiple machines and you have to make some updates.</li>
 docker service update --image imagename:version web1</br>
@@ -272,7 +272,7 @@ docker service update --image imagename:version web1</br>
 
 ---------------------------------------------------------------------------------------
 
-<li><strong>Step10:</strong> Shutdown node</li>
+<li><strong>Step10: Shutdown node</strong></li>
 <ol>
 <li>Command to shutdown the node.</li>
 <strong>$ docker node update --availability drain worker1.2</strong></br>
@@ -285,7 +285,7 @@ docker service update --image imagename:version web1</br>
 
 -----------------------------------------------------------------------------------------
 
-<li><strong>Step11:</strong> Remove service</li>
+<li><strong>Step11: Remove service</strong></li>
 <ol>
 <li>docker service rm serviceName it will remove the node from all the machine.</li>
 <strong>$ docker service rm web1</strong></br></br>   
