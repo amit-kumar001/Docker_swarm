@@ -5,7 +5,7 @@
 A <strong>swarm</strong> is a group of machines that are running Docker and joined into a cluster. Swarm turns multiple docker hosts into a single, virtual docker host.</br>
 Docker Swarm is a tool for Container Orchestration.</br>
 
-Let’s take an example:- You have 100 containers and you need to do:-</br>
+Let’s take an example:- You have 100 containers and you need to do following:-</br>
 - Health check on every container</br>
 - Ensure all containers are up on every system</br>
 - Scaling the containers up or down depending on the load</br>
@@ -16,11 +16,11 @@ Let’s take an example:- You have 100 containers and you need to do:-</br>
 ----------------------------------------------------------------------------------------
 ## Requirements
 <ol>
-<li>Docker version 1.13 or higher</li></br>  
+<li>Docker version 1.13 or higher.</li></br>  
  
 ![1](https://user-images.githubusercontent.com/47202519/56483999-ed6d5100-64ea-11e9-90e8-cd0807a00c9e.png)</br>
 
-<li>Docker Machine (pre installed Docker for Windows and Docker for Mac)</li>
+<li>Docker Machine (pre installed Docker for Windows and Docker for Mac).</li>
 </ol>  
 
 ----------------------------------------------------------------------------------------
@@ -41,9 +41,9 @@ sudo install /tmp/docker-machine /usr/local/bin/docker-machine</strong></li></br
 </ol>  
 
 ------------------------------------------------------------------------------
-
-<li>Step 1 : create docker machine to act as node for docker swaarm)</li>
-Create one machine as manager and other as workers.</br>
+## Working with swarm.
+<li>Step1 : Create docker machine(to act as node for docker swaarm)</li>
+We will create one machine as manager and other two as workers.</br>
 <ol>
 <li>To check all docker-machine commands.</li>
 <strong>$ docker-machine</strong> 
@@ -54,17 +54,17 @@ docker-machine:Error with pre-create check: “exit status 126”</br>
 <strong>Error with pre-create check: "VBoxManage not found. Make sure VirtualBox is installed and VBoxManage is in the path"</strong></br>
 
 
-<li>Need driver to create machine: we going to use virtualbox</li>
+<li>Need driver to create machine: we going to use virtualbox.</li>
 <strong>$ sudo apt-get install virtualbox</strong></br></br>  
 
 ![3](https://user-images.githubusercontent.com/47202519/56484004-f4945f00-64ea-11e9-9c72-ef19aaab237f.png)</br>
 
-<li>Now create docker machine manager </li>
+<li>Now create a docker machine manager. </li>
 <strong>$ docker-machine create --driver virtualbox manager1</strong></br> </br>  
 
 ![4](https://user-images.githubusercontent.com/47202519/56484006-f827e600-64ea-11e9-99b2-12c8370507af.png)</br>
 
-<li>To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run:</li>
+<li>To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run:-</li>
 <strong>$ docker-machine env manager1</strong></br></br>   
 
 ![5](https://user-images.githubusercontent.com/47202519/56484012-fcec9a00-64ea-11e9-9a24-bb03fbf78868.png)</br>
