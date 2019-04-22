@@ -2,13 +2,10 @@
 
 ![600x400](https://user-images.githubusercontent.com/47202519/56484411-1858a480-64ed-11e9-9107-09e009a957f4.jpg)</br>
 <ol>
-A <strong>swarm</strong> is a group of machines that are running Docker and joined into a cluster </br>
-swarm turns multiple docker hosts into a single, virtual docker host.</br>
-Docker Swarm is a tool for Container Orchestration</br>
+A <strong>swarm</strong> is a group of machines that are running Docker and joined into a cluster. Swarm turns multiple docker hosts into a single, virtual docker host.</br>
+Docker Swarm is a tool for Container Orchestration.</br>
 
-Let’s take an example</br>
-You have 100 containers</br>
-You need to do </br>
+Let’s take an example:- You have 100 containers and you need to do:-</br>
 - Health check on every container</br>
 - Ensure all containers are up on every system</br>
 - Scaling the containers up or down depending on the load</br>
@@ -19,18 +16,18 @@ You need to do </br>
 ----------------------------------------------------------------------------------------
 ## Requirements
 <ol>
-<li>Docker 1.13 or higher</li></br>  
+<li>Docker version 1.13 or higher</li></br>  
  
 ![1](https://user-images.githubusercontent.com/47202519/56483999-ed6d5100-64ea-11e9-90e8-cd0807a00c9e.png)</br>
 
-<li>Docker Machine (pre installed for Docker for Windows and Docker for Mac)</li>
+<li>Docker Machine (pre installed Docker for Windows and Docker for Mac)</li>
 </ol>  
 
 ----------------------------------------------------------------------------------------
 
 On <strong>mac OS</strong> and <strong>Windows</strong>, Machine is installed along with other Docker products when you install the Docker for Mac, Docker for Windows, or Docker Toolbox.</br>
-But in ubuntu you need to install the machine</br>
-Command to install docker-machine in ubuntu</br>
+But in ubuntu you need to install the machine.</br>
+Command to install docker-machine in ubuntu:-</br>
 <ol>
 <li><strong>base=https://github.com/docker/machine/releases/download/v0.16.0 &&</br>
 curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&</br>
@@ -38,7 +35,7 @@ sudo install /tmp/docker-machine /usr/local/bin/docker-machine</strong></li></br
 
 ![2](https://user-images.githubusercontent.com/47202519/56484002-f100d800-64ea-11e9-92c4-de32558f5761.png)</br>
 
-<li>Command to check docker-machine version</li>
+<li>Command to check docker-machine version:-</li>
 <strong>$docker-machine version</strong></br>
 <strong>$docker-machine -v</strong></br>
 </ol>  
